@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/escaperoom.css" rel="stylesheet">
+	
+	<style>
+	</style>
+  </head>
+
+  <body>
+	<header>
+		<img src='images/logo.PNG' class='center' style="height:100%;"/>
+	</header>
+
+    <main class="px-3">
+
+		<div class="row">
+		<div id="pix" class="col-12 col-md-8">
+			<img src='images/q8pic.PNG' style="height:100%;width:100%"/>
+		</div>
+        	<div id='text' class="col-6 col-md-4">
+				<p>At the end of the hallway you find the door to the professor's laboratory. Finally. Through the small pane of glass, you can see the professor asleep on the desk.</p>
+                <p>You resolve to enter, but the door is locked. On the right you recognise a code box similar to the one in the first room. And of all things, a poem written on a post-it:</p>
+				<p>'Oh I like my lazer puzzles,</p>
+                <p>They leave my students confuzzled!</p>
+                <p>To gain entry to my office,</p>
+                <p>You must know how I like my fish.</p>
+                <p>First I add lazer one, then I add this first clue.</p>
+                <p>In America it used to cost lazer two!</p>
+                <p>But since we're now in Scotland,</p>
+                <p>I guess it makes up the pound.</p>
+				<p>Dr R.G.</p>
+                <p>P.S. _ _ _ _ _ _ _ AND _ _ _ _ _'</p>
+			</div>
+		</div>
+	
+		<div id='QandA' class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		
+			<p id="question" class="lead">What is the code? (Use all capital letters).</p>
+			  <form id="form" class="d-flex" name="answer-box" onsubmit="return checkAnswers()">
+				<input id="answer-box" class="form-control me-2" type="text" name="answer" placeholder="The answer is..." aria-label="Answer">
+				<button id="button" class="btn btn-outline-success" type="submit">Answer</button>
+			  </form>
+		</div>
+	</main>
+
+	  <footer class="mt-auto text-white-50">
+	  </footer>
+	  
+	<script>
+	let a = ["VINEGAR AND PENNY"];
+	let n = 0
+	
+	function checkAnswers() {
+	  let x = document.forms["answer-box"]["answer"].value;
+	  if (x == a) {
+          askQuestion("<p>With a buzz, the door opens..</p><a href='escape_room8-2.html' class='btn btn-outline-success'> Exit the room. </a>");
+          document.getElementById("answer-box").style = "visibility:hidden";
+          document.getElementById("button").style = "visibility:hidden";
+		  return false;
+	    }
+	    else {
+          alert("The door does nothing. It seems the code was incorrect. Try another code.");
+		  return false;
+	    }
+	  }
+	
+	function askQuestion(newQ) {
+		document.getElementById("question").innerHTML = newQ;
+	}
+
+	</script>
+
+  </body>
+</html>
